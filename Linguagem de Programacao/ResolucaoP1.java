@@ -26,29 +26,17 @@ public class ResolucaoP1
 		            break;
 
 		        case 2:
-		            int a = 0;
-
-		            while (a < 800)
-		            {
-		                int b = 0;
-
-		                while (b < 800)
-		                {
-		                    if (a + b == 799)
-		                    {
-		                        b += 1;
-		                    }
-		                    else
-		                    {
-		                        System.out.println(fatorial(matriz[a][b]));
-		                        b += 1;
-		                    }
-		                }
-
-		                a += 1;
-		            }
-
-		            break;
+					for (int a = 0; a < 800; a++)
+					{
+						for (int b = 0; b < 800; b++)
+						{
+							if (a + b != 799)
+							{
+								System.out.println(fatorial(matriz[a][b]));
+							}
+						}
+					}
+					break;
 
 		        case 4:
 		            somaFatoriais();
@@ -87,7 +75,7 @@ public class ResolucaoP1
 	            }
 	            else
 	            {
-	                matriz[i][j] = rand.nextInt();
+	                matriz[i][j] = rand.nextInt(10);
 
 	                if (matriz[i][j] % 3 == 00 || matriz[i][j] % 5 == 00)
 	                {
@@ -97,7 +85,25 @@ public class ResolucaoP1
 	        }
 	    }
 
-	    System.out.println("— Soma dos números divisíveis por 3 e/ou 5: " + soma + "\n");
+	    System.out.println("— Matriz gerada com sucesso!\n— Soma dos números divisíveis por 3 e/ou 5: " + soma + "\n");
+	}
+
+
+	//EXERCÍCIO 2 e uma parte do 4
+	public int fatorial(int x)
+	{
+		if (x < 0)
+		{
+			return 0;
+		}
+		else if (x == 0 || x == 1)
+		{
+			return 1;
+		}
+		else
+		{
+			return x * fatorial(x - 1);
+		}
 	}
 
 
@@ -124,36 +130,15 @@ public class ResolucaoP1
 	}
 
 
-    //EXERCÍCIO 2
-	public int fatorial(int x)
-	{
-	    if (x < 0)
-	    {
-	        return 0;
-	    }
-	    else if (x == 0 || x == 1)
-	    {
-	        return 1;
-	    }
-	    else
-	    {
-	        return x * fatorial(x - 1);
-	    }
-	}
-
-
 	public int soma(int y)
 	{
-	    int z = 0;
-
 	    if (y == 1)
 	    {
 	        return 1;
 	    }
 	    else
 	    {
-	        z += fatorial(y) + soma(y - 1);
-	        return z;
+			return fatorial(y) + soma(y - 1);
 	    }
 	}
 }
