@@ -1,5 +1,7 @@
 //Os comentários aqui presentes são de minha autoria, e não da IA
 
+package resolucoes_provas.linguagem_programacao;
+
 import java.util.Scanner;
 import java.util.Random;
 
@@ -12,9 +14,12 @@ public class ResolucaoP1
 	Scanner scan = new Scanner(System.in);
 
 
-	public void main(String[] args)
+	public static void main(String[] args)
 	{
-		menu();
+		//Instanciei esta classe só para não ter que inserir "static" em cada método
+		ResolucaoP1 programa = new ResolucaoP1();
+
+		programa.menu();
 	}
 
 
