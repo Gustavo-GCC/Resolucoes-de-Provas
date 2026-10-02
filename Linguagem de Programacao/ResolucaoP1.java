@@ -8,14 +8,21 @@ public class ResolucaoP1
 	
 	int[][] matriz = new int[800][800];
 
-    //EXERCÍCIO 3
+
 	public void main(String[] args)
+	{
+		menu();
+	}
+
+
+	//EXERCÍCIO 3
+	public void menu()
 	{
 		int entrada = 0;
 
 		while (entrada != 9)
 		{
-		    System.out.println("— O que deseja?\n\t1-) Carregar Matriz\n\t2-) Gerar Fatorial\n\t4-) Somar Fatoriais\n\t9-) Fim");
+		    System.out.println("— O que desejas?\n\t1-) Carregar Valores na Matriz\n\t2-) Gerar Fatorial de Cada Índice\n\t4-) Somar N Fatoriais\n\t9-) Fim");
 
 		    entrada = scan.nextInt();
 
@@ -26,16 +33,7 @@ public class ResolucaoP1
 		            break;
 
 		        case 2:
-					for (int a = 0; a < 800; a++)
-					{
-						for (int b = 0; b < 800; b++)
-						{
-							if (a + b != 799)
-							{
-								System.out.println(fatorial(matriz[a][b]));
-							}
-						}
-					}
+					fatorialMatriz();
 					break;
 
 		        case 4:
@@ -47,7 +45,7 @@ public class ResolucaoP1
 		            break;
 
 		        default:
-		            System.out.println("DIGITE UM NÚMERO VÁLIDO\n");
+		            System.out.println("DIGITE UM NÚMERO VÁLIDO\n\n");
 		    }
 		}
 	}
@@ -77,7 +75,7 @@ public class ResolucaoP1
 	            {
 	                matriz[i][j] = rand.nextInt(10);
 
-	                if (matriz[i][j] % 3 == 00 || matriz[i][j] % 5 == 00)
+	                if (matriz[i][j] % 3 == 0 || matriz[i][j] % 5 == 0)
 	                {
 	                    soma += matriz[i][j];
 	                }
@@ -85,7 +83,7 @@ public class ResolucaoP1
 	        }
 	    }
 
-	    System.out.println("— Matriz gerada com sucesso!\n— Soma dos números divisíveis por 3 e/ou 5: " + soma + "\n");
+	    System.out.println("— Matriz gerada com sucesso!\n— Soma dos números divisíveis por 3 e/ou 5: " + soma + "\n\n");
 	}
 
 
@@ -107,10 +105,27 @@ public class ResolucaoP1
 	}
 
 
+	public void fatorialMatriz()
+	{
+		for (int a = 0; a < 800; a++)
+		{
+			for (int b = 0; b < 800; b++)
+			{
+				if (a + b != 799)
+				{
+					System.out.println(fatorial(matriz[a][b]));
+				}
+			}
+		}
+
+		System.out.println("\n");
+	}
+
+
     //EXERCÍCIO 4
 	public void somaFatoriais()
 	{
-	    int valor = 0;
+	    int valor;
 
 	    while (true)
 	    {
@@ -126,7 +141,7 @@ public class ResolucaoP1
             System.out.println("O VALOR DIGITADO É IGUAL OU MENOR QUE 4 OU MAIOR QUE 10\nDIGITE NOVAMENTE\n");
 	    }
 
-	    System.out.println("— Soma dos fatoriais: " + soma(valor) + "\n");
+	    System.out.println("— Soma dos fatoriais: " + soma(valor) + "\n\n");
 	}
 
 
