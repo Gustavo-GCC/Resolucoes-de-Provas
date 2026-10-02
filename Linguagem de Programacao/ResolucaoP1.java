@@ -1,12 +1,15 @@
+//Os comentários aqui presentes são de minha autoria, e não da IA
+
 import java.util.Scanner;
 import java.util.Random;
 
 public class ResolucaoP1
 {
+	//Temos que declarar a matriz fora do escopo de qualquer método se quisermos que ela seja global
+	int[][] matriz = new int[800][800];
+
 	Random rand = new Random();
 	Scanner scan = new Scanner(System.in);
-	
-	int[][] matriz = new int[800][800];
 
 
 	public void main(String[] args)
@@ -73,6 +76,7 @@ public class ResolucaoP1
 	            }
 	            else
 	            {
+					//Limitei os valores aleatórios de 0 a 9, já que o fatorial de números exorbitantes culminaria num "Stack Overflow"
 	                matriz[i][j] = rand.nextInt(10);
 
 	                if (matriz[i][j] % 3 == 0 || matriz[i][j] % 5 == 0)
@@ -105,6 +109,7 @@ public class ResolucaoP1
 	}
 
 
+	//Tornei esta parte um procedimento a fim de deixar o Switch Case do Exercício 3 mais limpo
 	public void fatorialMatriz()
 	{
 		for (int a = 0; a < 800; a++)
